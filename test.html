@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="example-collection.js"></script>
+    <script src="json-transpose.js"></script>
+    <script>
+        var result=Array.transpose(test);
+
+        var testLen=JSON.stringify(test).length,
+            resultLen=JSON.stringify(result).length;
+
+        console.log(testLen, resultLen, 100-(resultLen/testLen*100));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
