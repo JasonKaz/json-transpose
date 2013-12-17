@@ -1,6 +1,6 @@
 Array.transpose = function (data) {
     var obj = {},
-        i, k;
+        i, k, l = data.length;
 
     //Iterate through first first object's keys and create an array for each value
     for (k in data[0]) {
@@ -8,7 +8,7 @@ Array.transpose = function (data) {
     }
 
     //Go through all data, putting values into the transposed object's value
-    for (i = 0; i < data.length; i++) {
+    for (i = 0; i < l; i++) {
         for (k in data[i]) {
             obj[k].push(data[i][k]);
         }
@@ -19,17 +19,16 @@ Array.transpose = function (data) {
 
 Array.untranspose = function (data) {
     var array = [],
-        keys,
+        keys = Object.keys(data),
         obj = {},
-        i, k;
+        i, k, key, l;
 
-    keys = Object.keys(data);
-
-    for (i = 0; i < data[keys[0]].length; i++) {
+    for (i = 0, l = data[keys[0]].length; i < l; i++) {
         obj = {};
 
         for (k in keys) {
-            obj[keys[k]] = data[keys[k]][i];
+            key = keys[k];
+            obj[key] = data[key][i];
         }
 
         array.push(obj);
